@@ -1,3 +1,4 @@
+
 code{
     background: darkgray;
     padding: 2px;
@@ -26,3 +27,9 @@ code{
     padding: 1rem;
     box-shadow: 5px 5px 5px 5px grey;
 }
+.emperejar li {
+    display: flex;
+    max-width: 20rem;
+    justify-content: space-between;
+}
+
