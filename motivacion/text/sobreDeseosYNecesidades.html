@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cuestionario sobre deseos y necesidades</title>
+    <link rel="stylesheet" href="../../sytles/tomaDeApuntesStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+</head>
+<body>
+    <header>
+        Cuestionarios sobre deseos y necesidades
+    </header>
+    <nav class="prototipo01">
+        <a href="##"> anterior </a>
+        <a href="../index.html">indice</a>
+        <a href="##">siguiente</a>
+    </nav>
+    <div class="tituloPagina">
+        A continuacion tiene un listado de 70 afirmaciones...
+    </div>
+    <div class='resumen'>
+        <div class='titulo'>
+            -Sexo-
+        </div>
+        <div class='texto'>
+            Tengo Muchas fantasias eróticas.
+        </div>
+        <br> <input value=5 type="radio" name="sexoUno" id="ide"> Muy de acuerdo.
+        <br> <input value=4 type="radio" name="sexoUno" id="ide"> De acuerdo.
+        <br> <input value=3 type="radio" name="sexoUno" id="ide"> Ni de acuerdo ni en desacuerdo.
+        <br> <input value=2 type="radio" name="sexoUno" id="ide"> En desacuerdo.
+        <br> <input value=1 type="radio" name="sexoUno" id="ide"> Muy en desacuerdo.
+    </div>
+    <div class='resumen'>
+
+        <div class='texto'>
+            Pienso poco en el sexo a lo largo del dia.
+        </div>
+        <br> <input value=1 type="radio" name="sexoDos" id="ide"> Muy de acuerdo.
+        <br> <input value=2 type="radio" name="sexoDos" id="ide"> De acuerdo.
+        <br> <input value=3 type="radio" name="sexoDos" id="ide"> Ni de acuerdo ni en desacuerdo.
+        <br> <input value=4 type="radio" name="sexoDos" id="ide"> En desacuerdo.
+        <br> <input value=5 type="radio" name="sexoDos" id="ide"> Muy en desacuerdo.
+    </div>
+
+    <div class='resumen'>
+
+        <div class='texto'>
+            El sexo es esencial para mi felicidad.
+        </div>
+        <br> <input value=5 type="radio" name="sexoTres" id="ide"> Muy de acuerdo.
+        <br> <input value=4 type="radio" name="sexoTres" id="ide"> De acuerdo.
+        <br> <input value=3 type="radio" name="sexoTres" id="ide"> Ni de acuerdo ni en desacuerdo.
+        <br> <input value=2 type="radio" name="sexoTres" id="ide"> En desacuerdo.
+        <br> <input value=1 type="radio" name="sexoTres" id="ide"> Muy en desacuerdo.
+    </div>
+
+    <div class='resumen'>
+
+        <div class='texto'>
+            Estoy orgulloso de mi gran energia sexual.
+        </div>
+        <br> <input value=5 type="radio" name="sexoCuatro" id="ide"> Muy de acuerdo.
+        <br> <input value=4 type="radio" name="sexoCuatro" id="ide"> De acuerdo.
+        <br> <input value=3 type="radio" name="sexoCuatro" id="ide"> Ni de acuerdo ni en desacuerdo.
+        <br> <input value=2 type="radio" name="sexoCuatro" id="ide"> En desacuerdo.
+        <br> <input value=1 type="radio" name="sexoCuatro" id="ide"> Muy en desacuerdo.
+    </div>
+
+    <div class='resumen'>
+
+        <div class='texto'>
+            Necesito practicar todo el sexo que pueda.
+        </div>
+        <br> <input value=5 type="radio" name="sexoCinco" id="ide"> Muy de acuerdo.
+        <br> <input value=4 type="radio" name="sexoCinco" id="ide"> De acuerdo.
+        <br> <input value=3 type="radio" name="sexoCinco" id="ide"> Ni de acuerdo ni en desacuerdo.
+        <br> <input value=2 type="radio" name="sexoCinco" id="ide"> En desacuerdo.
+        <br> <input value=1 type="radio" name="sexoCinco" id="ide"> Muy en desacuerdo.
+    </div>
+    
+    <input type="button" value="value" class="botonBalorar">
+
+    <nav class="prototipo01">
+        <a href="######"> anterior </a>
+        <a href="../index.html">índice</a>
+        <a href="######">siguiente</a>
+    </nav>
+</body>
+</html>
+<script>
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+$('.botonBalorar').click(function() {
+    let rButon = $("[name='sexoUno']:checked");
+    let puntos = parseInt(rButon[0].value);
+    let total = puntos;
+    rButon = $("[name='sexoDos']:checked");
+    puntos = parseInt(rButon[0].value);
+    total += puntos;
+    rButon = $("[name='sexoTres']:checked");
+    puntos = parseInt(rButon[0].value);
+    total += puntos;
+    rButon = $("[name='sexoCuatro']:checked");
+    puntos = parseInt(rButon[0].value);
+    total += puntos;
+    rButon = $("[name='sexoCinco']:checked");
+    puntos = parseInt(rButon[0].value);
+    total += puntos;
+    console.log({total});
+});
+
+</script>
