@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../ricardoHomework/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <br>
+    <h1>Descriptions</h1>
+    <h2>has/have got</h2>
+    <div class='ejercice_num'>a</div>
+    <b>Complete the following sentences to practice the expression have got:</b>
+    
+    <ol>
+        <li> 
+            She ______________ long and curly hair.
+        </li>
+        <div id = 'checkplease001' class='checkthisplease'>
+        <input class = 'respuesta_del_examiando' type='text'>
+        <button data-idpadre = 'checkplease001' > check </button>
+        <input class= 'solucion' type='hidden' value ='has got'>
+        <input class= 'solucion' type='hidden' value ="'s got">
+        </div>
+        <li>
+        He _______________ short and straight hair.
+            <div id = 'checkplease002' class='checkthisplease'>
+            <input class = 'respuesta_del_examiando' type='text'>
+            <button data-idpadre = 'checkplease002' > check </button>
+            <input class= 'solucion' type='hidden' value ='has got'>
+            <input class= 'solucion' type='hidden' value ="'s got">
+            </div>
+        </li>
+        <li>
+            I ________________ small feet.
+        </li>
+        <div id = 'checkplease003' class='checkthisplease'>
+            <input class = 'respuesta_del_examiando' type='text'>
+            <button data-idpadre = 'checkplease003' > check </button>
+            <input class= 'solucion' type='hidden' value ='have got'>
+            <input class= 'solucion' type='hidden' value ='’ve got'>
+            <input class= 'solucion' type='hidden' value ="'ve got">
+        </div>
+        <li>
+            They _______________ long and muscular arms.
+        </li>
+        <div id = 'checkplease004' class='checkthisplease'>
+        <input class = 'respuesta_del_examiando' type='text'>
+        <button data-idpadre = 'checkplease004' > check </button>
+        <input class= 'solucion' type='hidden' value ='have got'>
+        <input class= 'solucion' type='hidden' value ='’ve got'>
+        <input class= 'solucion' type='hidden' value ="'ve got">
+        </div>
+        <li>
+            We _________________ red hair.
+            <div id = 'checkplease005' class='checkthisplease'>
+            <input class = 'respuesta_del_examiando' type='text'>
+            <button data-idpadre = 'checkplease005' > check </button>
+            <input class= 'solucion' type='hidden' value ='have got'>
+            <input class= 'solucion' type='hidden' value ="’ve got">
+            <input class= 'solucion' type='hidden' value ="'ve got">
+            </div>
+        </li>
+
+
+    </ol>
+
+</body>
+<script>
+
+
+    $(document).ready(function(){
+        console.log('listo');
+        $( ".respuesta" ).each(function( index ) {
+            console.log( index + ": " + $( this ).val() );
+        });
+
+        function corregir (id_ejercicio) {
+            var respuesta_del_examiando = $( "#"+ id_ejercicio +" .respuesta_del_examiando" ).val();
+            console.log(respuesta_del_examiando);
+            var iscorrecta = false;
+
+            $( "#"+ id_ejercicio +" .solucion" ).each(function( index ) {
+                if ( $(this).val() == respuesta_del_examiando){
+                    console.log($(this).val());
+                    console.log(respuesta_del_examiando);
+                    iscorrecta = true;
+                }
+                
+            });
+            return iscorrecta;
+
+        }
+        $( ".checkthisplease button" ).click(function() {
+
+            id_ejercicio = $(this).data('idpadre');
+            console.log(id_ejercicio);
+
+            alert (corregir(id_ejercicio));
+        
+        });
+        $( "#solucion" ).click(function() {
+            var repuestas = '';
+
+            $( ".respuesta" ).each(function( index ) {
+                repuestas = repuestas + $(this).val()+' o \n';
+
+            });
+            alert (repuestas);
+        
+        });
+
+    });
+</script>
+
+</html>
