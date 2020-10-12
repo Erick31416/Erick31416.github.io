@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../ricardoHomework/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <br>
+    <h1>Paula Becerra 14 de Enero de 2019</h1>
+    <h2>comparative</h2>
+    <div class='ejercice_num'>a</div>
+    <b>Complete the following sentences with the correct form of the comparative. Use the arrow to know if it indicates more or less</b>
+    <ul>
+        <li><b>1 </b>Todos los programas empiezan con un :.</li>
+        <div id = "checkplease001" class="checkthisplease">
+            <input class = "respuesta_del_examiando" type="text">
+            <button data-idpadre = "checkplease001" > check </button>
+            <input class= "solucion" type="hidden" name="" value ="hola mundo">
+            <input class= "solucion" type="hidden" name="" value ="tambien podria haber pasado todo a min o a may pero asi se entiende mejor el concepto, y puedes afinar a que despues de un punto va una mayuscula">
+        </div>
+    </ul>
+    <ul>
+        <li><b>2</b> 
+            She talks _____________ (↑) than the rest of the people in the office.
+        </li>
+            <div id = "checkplease002" class="checkthisplease">
+            <input class = "respuesta_del_examiando" type="text">
+            <button data-idpadre = "checkplease002" > check </button>
+            <input class= "solucion" type="hidden" name="" value ="better">
+            <input class= "solucion" type="hidden" name="" value ="more">
+            <input class= "solucion" type="hidden" name="" value ="tambien podria haber pasado todo a min o a may pero asi se entiende mejor el concepto, y puedes afinar a que despues de un punto va una mayuscula">
+        </div>
+        <br>
+        <li><b>3</b> 
+            We receive ____________ (↓) emails than the rest of the team.
+        </li>
+            <div id = "checkplease003" class="checkthisplease">
+            <input class = "respuesta_del_examiando" type="text">
+            <button data-idpadre = "checkplease003" > check </button>
+            <input class= "solucion" type="hidden" name="" value ="less">
+            <input class= "solucion" type="hidden" name="" value ="tambien podria haber pasado todo a min o a may pero asi se entiende mejor el concepto, y puedes afinar a que despues de un punto va una mayuscula">
+        </div>
+        <br>
+        <li><b>4</b> 
+            He eats ____________(↑) than I do.
+        </li>
+                <div id = "checkplease004" class="checkthisplease">
+            <input class = "respuesta_del_examiando" type="text">
+            <button data-idpadre = "checkplease004" > check </button>
+            <input class= "solucion" type="hidden" name="" value ="more">
+            <input class= "solucion" type="hidden" name="" value ="tambien podria haber pasado todo a min o a may pero asi se entiende mejor el concepto, y puedes afinar a que despues de un punto va una mayuscula">
+        </div>
+        <br>
+        <li><b>5</b> 
+            Janeth sends __________(↑) text messages than her sister.
+        </li>
+                <div id = "checkplease005" class="checkthisplease">
+            <input class = "respuesta_del_examiando" type="text">
+            <button data-idpadre = "checkplease005" > check </button>
+            <input class= "solucion" type="hidden" name="" value ="more">
+            <input class= "solucion" type="hidden" name="" value ="tambien podria haber pasado todo a min o a may pero asi se entiende mejor el concepto, y puedes afinar a que despues de un punto va una mayuscula">
+        </div>
+        <br>
+        <li><b>6</b> 
+            Camila speaks on the phone ____________(↓) than the rest of the team.
+        </li>
+                <div id = "checkplease006" class="checkthisplease">
+            <input class = "respuesta_del_examiando" type="text">
+            <button data-idpadre = "checkplease006" > check </button>
+            <input class= "solucion" type="hidden" name="" value ="less">
+            <input class= "solucion" type="hidden" name="" value ="tambien podria haber pasado todo a min o a may pero asi se entiende mejor el concepto, y puedes afinar a que despues de un punto va una mayuscula">
+        </div>
+        <br>
+    </ul>
+
+</body>
+<script>
+
+
+    $(document).ready(function(){
+        console.log('listo');
+        $( ".respuesta" ).each(function( index ) {
+            console.log( index + ": " + $( this ).val() );
+        });
+
+        function corregir (id_ejercicio) {
+            var respuesta_del_examiando = $( "#"+ id_ejercicio +" .respuesta_del_examiando" ).val();
+            console.log(respuesta_del_examiando);
+            var iscorrecta = false;
+
+            $( "#"+ id_ejercicio +" .solucion" ).each(function( index ) {
+                if ( $(this).val() == respuesta_del_examiando){
+                    console.log($(this).val());
+                    console.log(respuesta_del_examiando);
+                    iscorrecta = true;
+                }
+                
+            });
+            return iscorrecta;
+
+        }
+        $( ".checkthisplease button" ).click(function() {
+
+            id_ejercicio = $(this).data('idpadre');
+            console.log(id_ejercicio);
+
+            alert (corregir(id_ejercicio));
+        
+        });
+        $( "#solucion" ).click(function() {
+            var repuestas = '';
+
+            $( ".respuesta" ).each(function( index ) {
+                repuestas = repuestas + $(this).val()+' o \n';
+
+            });
+            alert (repuestas);
+        
+        });
+
+    });
+</script>
+
+</html>
