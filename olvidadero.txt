@@ -1,0 +1,5 @@
+apuntar como se crea el comando git lg.
+mirar como recupear archivos borrados de un disco.
+Pensar como organizar las series.
+emet en vi
+vi en code

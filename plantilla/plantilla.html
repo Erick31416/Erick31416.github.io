@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantilla</title>
+    <style>
+        .container>* {
+            margin-right: auto;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            background: oldlace;
+        }
+        code.linea{
+            background-color: black;
+            color: cornsilk;
+        }
+        code.bloque{
+            background-color: black;
+            color: cornsilk;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1> El titulo uno </h1>
+        <br>
+        <h2>lista de cosas</h2>
+        <ul>
+            <li>HBO
+                <ol>
+                    <li>The undoin</li>
+                </ol>
+            </li>
+        </ul>
+        <h2>Gestionar los archivos duplicados</h2>
+        <ul>
+            <li><a href="https://www.atareao.es/software/utilidades/eliminar-duplicados/">Atareado fdupes</a></li>
+        </ul>
+        <h3>fslint</h3>
+        <p>La última vez que lo busque en los repos no estaba, pero era mi preferido.</p>
+        
+        <h3>fdupes</h3>
+        <p>
+            Primer uso:
+            <code class='bloque'>
+                man fdupes
+                fdupes -r ~/home/ricardo
+            </code>
+            
+            Encuentra todos los archivos duplicados en el directorio y subdirectorios.
+            Lo normal ahora es que quiera llevarme la salida a otro archivo para trabajar con el texto.
+            fdupes -r ~/home/ricardo > ~/burnAferReading.txt
+
+            y luego puede que quiera abrir un arcivo concreto
+
+            <code class="bloque">
+                xviewer ./2019/DCIM/2019-organizar/P1160720.JPG
+            </code>
+
+            Se el nombre del programa que abre fotos porque me he metido en el "ayuda->acerca de" de l programa.
+            <br>
+            se me ocurre que puedo querer organizarlo por tamaño.
+            <br>
+            bueno, ahora he identificado la carpeta sospechosa de tener archivos indeseados.
+            <br>
+            la opicion -m te muetra un resumen del tipo:
+            <code class="bloque">
+                318 duplicate files (in 183 sets), occupying 1749.3 megabytes
+            </code>
+
+        </p>
+        <h4>consideraciones</h4>
+        <p>
+            tiene opciones para seguir los enlaces simbolicos y los enlaces duros.
+            Es decir , antes de usar este comando piensa si tus directorios contienen este tipo de enlaces y las implicaciones de esto.
+            fdupes utiliza md5sums en la búsqueda de duplicados. En el caso de que el resultado sea igual, entonces realiza una comparación byte a byte.
+        </p>
+    
+    </div>
+</body>
+
+</html>
