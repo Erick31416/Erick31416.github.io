@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantilla</title>
+    <style>
+        .container>* {
+            margin-right: auto;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            background: oldlace;
+        }
+        code.linea{
+            background-color: black;
+            color: cornsilk;
+        }
+        code.bloque{
+            background-color: black;
+            color: cornsilk;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1> jwebtoken </h1>
+        <br>
+        <p>
+            El jwebtoken no mantiene la sesion abierta.
+            <br>
+            habla de el como autentificacion pasiva.ç
+            <br>
+            tiene 3 partes (pilot, )
+            <br>
+            No guardes nunca en el web token informacion sesnsibles
+            <br>
+            parece que en jwt que guarda el usuario id.
+            <br>
+            <h2>Las variables de sesion</h2>
+            Se crea cuando un usuario se autentica en nuestra aplicacion.
+            vive en el lado del servidor.
+            esto, escala mal.
+            variables de sesion = sesion.
+            las variables de sesion son aconsejable para unos 5.000 usurios.
+            tiene : header, pilot, firma.
+            header: tipo de token y 
+            pilot: la info que queremos que esta en el token.
+            la firma: si el token es valido.
+            ¡La info del token es facil de descifrar!
+            ->en jwt.io -> se puede desencriptar un token para ver que tiene.
+            los jwt que guardan en el navegador en el local storage, y en el sesion storage, la diferencia entre hambos, es que el sesion storage se borra cuando .. ¿se apaga el equipo?
+            
+        </p>
+        <p>
+
+            <code class="bloque">
+                xviewer ./2019/DCIM/2019-organizar/P1160720.JPG
+            </code>
+
+
+        </p>
+        <h4>consideraciones</h4>
+        <p>
+            
+        </p>
+    
+    </div>
+</body>
+
+</html>
