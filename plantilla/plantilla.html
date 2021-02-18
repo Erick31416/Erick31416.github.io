@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Plantilla</title>
+    <link rel="stylesheet" href="../sytles/tomaDeApuntesStyle_ln.css">
     <style>
         .container>* {
             margin-right: auto;
@@ -32,9 +33,55 @@
 
     <div class="container">
 
-        <h1> El titulo uno </h1>
+        <h1> Emmet </h1>
         <br>
-        <h2>lista de cosas</h2>
+        <h2>cosas suletas</h2>
+        Para crear una etiqueta code de la clase bloque 
+        <code class="bloque">
+            code.bloque 
+        </code>
+        Para crear un li que tenga dentro un ahref
+        <code class="bloque">
+            li>a
+        </code>
+        Para crear varios elementos con un numero que se incrementa
+        <code class="bloque">
+            ul>li{Item $}*3 
+        </code>
+        Para crear varios elementos con un solo elemento dentro
+        <code class="bloque">
+            ul>li*3>a 
+        </code>
+
+        <h2>Links interesantes</h2>
+        <ul>
+            <li><a href="https://medium.com/adalab/5-trucos-de-emmet-para-html-c5fbf935631a">5 trucos, esta graciosa</a></li>
+        </ul>
+
+        <h2>resto plantilla</h2>
+
+        <div class='resumen'>
+            <div class='titulo'>
+                Uso de Yargs <a href="https://www.udemy.com/course/node-de-cero-a-experto/learn/lecture/9511370#overview">video 33</a>
+            </div>
+            <div class='texto'>
+                hata el minuto 2:19 no hay nada interesante. 
+                <br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias accusamus possimus dicta enim consequatur laudantium quos culpa at repellat similique cupiditate iste quas excepturi id maiores, quisquam aperiam voluptas exercitationem! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore dolor debitis doloribus, sunt ipsa expedita ratione, aperiam nemo rem repellat voluptas quam provident adipisci a? Laborum error commodi adipisci perspiciatis!
+                <br>1º observacion: el require no es una ruta, solo en nombre del paquete, mira: <code>const arg = require(yards);</code>
+                <br> <strong>No olvides que es una cadena entrecomillada</strong>
+                <br>
+                <br>El uso mas sencillo de yardgs que se me ocurre es:
+                <pre>
+                <div class="rickcode">
+    const argY = require('yargs').argv;
+    console.log(argY.base);
+    console.log(argY.perro);
+                </div>
+                </pre>
+                <br> 
+            </div>
+        </div>
+
         <ul>
             <li>HBO
                 <ol>

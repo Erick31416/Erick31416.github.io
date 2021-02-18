@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.olantesdeempezarconbemcss{
+    margin: 0 0 0 3em;
+    width: 50%;
+}
+header {
+    padding: 1% 10%;
+    width: 80%;
+    text-align: center;
+    background: aliceblue;
+    font-size: 2rem;
+    margin: 0;
+}
+nav.prototipo01 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+nav.prototipo01>a {
+    padding: 1rem;
+    text-decoration: none;
+}
+.tituloPagina {
+    width: 100%;
+    text-align: center;
+    font-size: 30px; /* alkaparra ¿por que si pongo un 1rem el tamaño es distinto al 1 rem de otro apartado,*/
+}
+.resumen {
+    padding: 1rem;
+}
+.resumen .titulo {
+    text-decoration: underline;
+    font-size: 21px;
+    padding: 5px 0;
+}
+.resumen .texto {
+    border: solid 1px darkgray;
+    background: whitesmoke;
+    padding: 10px;
+}
+.rickcode {
+    border: solid gray 1px;
+    padding: 1rem;
+    border-left: solid;
+    background: lightgray;
+    
+}
+.rasca{
+    background-color: yellowgreen;
+    color: yellowgreen;
+}
