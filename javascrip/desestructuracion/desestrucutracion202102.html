@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../sytles/tomaDeApuntesStyle_ln.css">
+</head>
+
+<body>
+    <header>
+        Apuntes de desestructuracion 2021-02-00
+    </header>
+    <div class="tituloPagina">
+        Apuntes de desestructuacion del 2021 02 00
+    </div>
+
+    <div class="resumen">
+        <div class="titulo">
+            destructuracion
+        </div>
+        <div class="texto">
+            El siguiente fragmeto de código explica que es la desestrucutracion.
+            <br>Resumiendo: "Romper" Un Objeto o Array transformando sus propiedades o elementos en variables.
+            <div class='rickcode'><pre><code>
+/Dado un objeto con n propiedades
+let usuario = {
+    nombre: 'David',
+    apellido: 'Thoreau',
+    tercerCampo: 'Walden'
+}
+
+//console.log('La desestructuracion consiste en romper un objeto convirtiendo en variables sus propiedades o elementos');
+
+//Aqui podemos ver como creamos la variable alias a partir de la propiedad nombre.
+//Más facil pordemos ver como creamos una variable apellido con el mismo nombre que la propiedad.
+//tambien podemos poner un valor por defecto por si no encontramos la propiedad en el objeto.
+
+var { nombre: alias, apellido, edad = 0 } = usuario;
+console.log('variable alias obtenida a partir de la propiedad nombre -> ', alias);
+console.log('variable apellido obtenida a partir de la propiedad apellido ->', apellido);
+console.log('variable edad cullo valor por defecto es 0 -> ', edad);
+
+//tambien se pueden pasar los argumentos a una funcion a partir de un objeto desestrucurado.
+function imprimirdatos({ nombre, apellido, edad = 0 }) {
+
+    console.log('Abajo se muestran los valores de los argumentos de esta funcion a la que se le ha pasado un objeto');
+    console.log(nombre, apellido, edad);
+}
+
+imprimirdatos(usuario);
+
+var arry = ['uno', 'dos', 'tres', 'd4os', 't5res', 'do6s', 'Septimus'];
+//observa que ahora uso corchetes
+var [primo, secon, tercius] = arry;
+
+console.log('Abajo se muestra el valor de una variable creada de la desestrucutracion de un array');
+console.log(secon);
+
+//Tambien puedeo elegir que elementos del array paso a mis vairables
+
+var [primus, , , , , , protagonista] = arry;
+
+console.log('Abajo se ve el valor de una variable obtenida de la desestrucutracion de algunos elementos del array');
+console.log(protagonista);
+            </code></pre></div>
+            Ejecutando Todo el código anterior, la salida sera:
+            <pre>
+
+            variable alias obtenida a partir de la propiedad nombre ->  David
+            variable apellido obtenida a partir de la propiedad apellido -> Thoreau
+            variable edad cullo valor por defecto es 0 ->  0
+            Abajo se muestran los valores de los argumentos de esta funcion a la que se le ha pasado un objeto
+            David Thoreau 0
+            Abajo se muestra el valor de una variable creada de la desestrucutracion de un array
+            dos
+            Abajo se ve el valor de una variable obtenida de la desestrucutracion de algunos elementos del array
+            Septimus
+            </pre>
+        </div>
+    </div>
+
+</body>
+
+</html>
