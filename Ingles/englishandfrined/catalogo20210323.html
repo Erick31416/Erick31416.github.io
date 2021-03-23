@@ -35,6 +35,17 @@
             padding: 1rem;
             box-shadow: 5px 5px 5px 5px grey;
         }
+        acronym{
+            position: relative;
+        }
+        acronym .title {
+            position: absolute;
+            top: 20px;
+            background: silver;
+            padding: 4px;
+            left: 0;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -350,10 +361,16 @@
                     alert(solutions);
                 }
             }
-
         }
-        
     })
+    $("acronym").click(function () {
+    var $title = $(this).find(".title");
+    if (!$title.length) {
+        $(this).append('<span class="title">' + $(this).attr("title") + '</span>');
+    } else {
+        $title.remove();
+    }
+});
 </script>
 
 
