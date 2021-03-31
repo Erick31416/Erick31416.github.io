@@ -1,0 +1,39 @@
+code{
+    background: darkgray;
+    padding: 2px;
+}
+.ejercice_num{
+    padding:0 1rem ;
+    background: darkgreen;
+    color: white;
+    font-weight: bold;
+    display: inline;
+}
+.rasca{
+    background:gold;
+    color:gold;
+    display: inline;
+}
+.gramarTitle{
+    color: green;
+    display:inline;
+    font-weight: bold;
+}
+.txtbackgreen{
+    margin: 1rem;
+    background: lightgreen;
+    max-width: 20rem;
+    padding: 1rem;
+    box-shadow: 5px 5px 5px 5px grey;
+}
+acronym{
+    position: relative;
+}
+acronym .title {
+    position: absolute;
+    top: 20px;
+    background: silver;
+    padding: 4px;
+    left: 0;
+    white-space: nowrap;
+}
