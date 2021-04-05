@@ -37,3 +37,9 @@ acronym .title {
     left: 0;
     white-space: nowrap;
 }
+.ocultarMostar{
+    background-color: thistle;
+    padding: 5px;
+    width: fit-content;
+    border-radius: 5px;
+}
