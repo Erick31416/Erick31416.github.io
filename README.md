@@ -19,6 +19,64 @@ git diff (--catched |--staged ) [color] [<files>]
  
 # CONTENEDORES 
 
+**Indice:**
+1. [Comienzo Rapido](#id01)
+## Comienzo Rapido<a name='id01'></a>
+Este texto fue escrito el 2021-10-01.  
+
+Te recuerdo que puedes consultar que hacen los comandos en :
+https://explainshell.com/
+
+Estoy siguiendo los pasos de : https://atareao.es/tutorial/docker/
+
+
+Instalación:
+```bash
+$ curl -fsSL https://get.docker.com -o get-docker.sh
+$ sudo sh get-docker.sh
+```
+
+Permisos:
+```bash
+sudo usermod -aG docker $USER
+```
+
+```bash
+MIGRUPO=$(id -gn)
+newgrp docker
+newgrp $MIGRUPO
+```
+
+En este caso me voy a saltar la instalacion del contenedor helloworld.  
+paso a -> https://atareao.es/tutorial/docker/gestionar-imagenes-con-docker/
+
+Aqui recuerda que las imagenes estan subidas a dokerhub.
+
+ejecuta :
+```bash
+docker image ls
+```
+Para ver las imagenes que ya te has bajado.
+(si es que ya tenias instalado docker)
+
+Me bajo la ultima version de ubuntu:
+```bash
+docker pull ubuntu
+```
+Puedes observar que esta imagen en oficial porque no viene el autor.
+Una imagen de un usuario seria:
+```bash
+docker pull atareao/baseimage	
+```
+
+paso a -> https://atareao.es/tutorial/docker/gestionar-contenedores-con-docker/
+
+
+
+
+## Comienzo rapido.
+
+
 ## **Desitilado**
 
 1. `docker run hello-world` -> baja una imagen y ejecuta un contenedor.
