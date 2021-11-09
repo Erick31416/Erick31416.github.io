@@ -21,9 +21,34 @@ git diff (--catched |--staged ) [color] [<files>]
 
 **Indice:**
 1. [Comienzo Rapido](#id01)
-## Comienzo Rapido<a name='id01'></a>
-Este texto fue escrito el 2021-10-01.  
+2. [Cabio de manual de docker](#id02)
 
+## Cabio de manual de docker<a name='id02'></a>
+
+He visto este otro curso de docker y me parece mejor que el de Atareao.
+... veremos ...
+https://ualmtorres.github.io/SeminarioDockerPresentacion/
+
+2.7.3. Abrir un terminal en un contenedor
+
+para usar el primer contenedor que pone en el ejemplo tengo que dejar libres los puertos:  
+https://www.cyberciti.biz/faq/star-stop-restart-apache2-webserver/  
+
+
+
+
+```bash
+## Start command ##
+#systemctl start apache2.service
+## Stop command ##
+systemctl stop apache2.service
+systemctl stop mysql.service
+## Restart command ##
+#systemctl restart apache2.service
+```
+
+
+## Comienzo Rapido<a name='id01'></a>
 Te recuerdo que puedes consultar que hacen los comandos en :
 https://explainshell.com/
 
@@ -70,6 +95,33 @@ docker pull atareao/baseimage
 ```
 
 paso a -> https://atareao.es/tutorial/docker/gestionar-contenedores-con-docker/
+
+retomo el texto el 2021-11-06-12h32m
+
+En ve de ubuntu voy a instalar otro contenedor:
+`docker run -d --name test01 -p 81:80 nginx:alpine`
+-p 81:80 significa que las peticiones que vallan al puerto 81 de tu equipo se redirigen al 80 de docker.
+poniendo en el navegador:
+http://localhost:81/ ya verias la pagina de ngix
+_nota: NO me ha funcionado a la primera, pero me he puesto a trastear con el servidor de mi equipo y a rato a funcionado_
+con trasteando me refiero a :
+```bash
+  353  sudo systemctl start apache2
+  354  sudo systemctl stop apache2
+  355  sudo systemctl status apache2
+  356  sudo systemctl stop 
+  357  sudo apachectl stop 
+  358  sudo systemctl start apache2
+```
+
+Me he saltado toda la parte de listar, nombrar, parar, borrar ... contededores.
+
+Mas tarde , pararare, borrare contenedores y lo mismo hasta desinstalo docker para acabar.  
+de momento, nos mentemos en el contenedor con :
+`docker run -d --name test01 nginx:alpine`
+
+
+
 
 
 
