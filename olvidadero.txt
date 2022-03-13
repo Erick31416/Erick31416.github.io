@@ -3,4 +3,4 @@ mirar como recupear archivos borrados de un disco.
 Pensar como organizar las series.
 emet en vi
 vi en code
-----------
+---------.....-
