@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj de cuenta atrás</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="clock">
+    <div class="countdown" id="actividad01">
+      <h2>skiping</h2>
+      <span id="actividad01Timer"></span>
+    </div>
+    <div class="countdown" id="descanso01">
+      <h2>Descanso</h2>
+      <span id="descanso01Timer"></span>
+    </div>
+    <div class="countdown" id="burpies">
+      <h2>Burpies</h2>
+      <span id="burpiesTimer"></span>
+    </div>
+    <div class="countdown" id="descanso2">
+      <h2>Descanso</h2>
+      <span id="descanso2Timer"></span>
+    </div>
+    <div class="countdown" id="burpies2">
+      <h2>Burpies</h2>
+      <span id="burpies2Timer"></span>
+    </div>
+  </div>
+  <button id="startButton">Comenzar</button>
+  <audio id="alarmSound">
+    <source src="alarm.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script src="./scrip.js"></script>
+</body>
+</html>
+
+
