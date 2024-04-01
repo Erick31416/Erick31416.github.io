@@ -1,10 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     const timers = [
-      { id: "actividad01", duration: 3 },{ id: "descanso01", duration: 2 },
-      
-      { id: "burpies", duration: 25 },
-      { id: "descanso2", duration: 5 },
-      { id: "burpies2", duration: 25 }
+      { id: "actividad010", duration: 30 },{ id: "descanso010", duration: 30 },
+      { id: "actividad020", duration: 30 },{ id: "descanso020", duration: 30 },
+      { id: "actividad030", duration: 30 },{ id: "descanso030", duration: 30 },
+      { id: "actividad040", duration: 30 },{ id: "descanso040", duration: 30 },
+      { id: "actividad050", duration: 20 },{ id: "descanso050", duration: 15 },
+      { id: "actividad060", duration: 20 },{ id: "descanso060", duration: 15 },
+      { id: "actividad070", duration: 20 },{ id: "descanso070", duration: 15 },
+      { id: "actividad080", duration: 20 },{ id: "descanso080", duration: 15 },
+      { id: "actividad090", duration: 20 },{ id: "descanso090", duration: 15 },
+      { id: "actividad100", duration: 20 },{ id: "descanso100", duration: 15 },
+      { id: "actividad110", duration: 20 },{ id: "descanso110", duration: 15 },
+      { id: "actividad120", duration: 20 },{ id: "descanso120", duration: 15 },
+      { id: "actividad130", duration: 30 },{ id: "descanso130", duration: 30 },
+      { id: "actividad140", duration: 30 },{ id: "descanso140", duration: 30 },
     ];
   
     let currentTimerIndex = 0;
@@ -19,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
   
       const currentTimer = timers[currentTimerIndex];
       console.log(currentTimer.id + "Timer");
+      let currenttype = currentTimer.id;
+      
+      if (currenttype.includes('actividad')) {//
+        document.body.style.backgroundColor = "LightGreen";
+    } else if (currenttype.includes('descanso')) {
+        document.body.style.backgroundColor = "Lavender";
+    }
+
       const timerElement = document.getElementById(currentTimer.id + "Timer");
       let remainingTime = currentTimer.duration;
       timerElement.textContent = remainingTime;
@@ -29,15 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
   
         if (remainingTime <= 0) {
           clearInterval(intervalId);
-          playAlarm();
+          playAlarm(currentTimer.id);
           currentTimerIndex++;
           startTimer();
         }
       }, 1000);
     }
   
-    function playAlarm() {
-      alert('alarma');
+    function playAlarm(currentTimer) {
+      //alert('alarma');
+
       //const alarmSound = document.getElementById("alarmSound");
       //alarmSound.play();
     }
