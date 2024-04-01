@@ -35,8 +35,6 @@ para usar el primer contenedor que pone en el ejemplo tengo que dejar libres los
 https://www.cyberciti.biz/faq/star-stop-restart-apache2-webserver/  
 
 
-
-
 ```bash
 ## Start command ##
 #systemctl start apache2.service
@@ -46,7 +44,6 @@ systemctl stop mysql.service
 ## Restart command ##
 #systemctl restart apache2.service
 ```
-
 
 ## Comienzo Rapido<a name='id01'></a>
 Te recuerdo que puedes consultar que hacen los comandos en :
@@ -119,11 +116,6 @@ Me he saltado toda la parte de listar, nombrar, parar, borrar ... contededores.
 Mas tarde , pararare, borrare contenedores y lo mismo hasta desinstalo docker para acabar.  
 de momento, nos mentemos en el contenedor con :
 `docker run -d --name test01 nginx:alpine`
-
-
-
-
-
 
 
 ## Comienzo rapido.
