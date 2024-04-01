@@ -57,6 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
         timerElement.textContent = remainingTime;
   
         if (remainingTime <= 0) {
+          document.getElementById(currentTimer.id).style.display = "none";
+
+
+
           clearInterval(intervalId);
           playAlarm(currentTimer.id);
           currentTimerIndex++;
