@@ -20,6 +20,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let intervalId;
   
     function startTimer() {
+      const requestWakeLock = async () => {
+        try {
+          const wakeLock = await navigator.wakeLock.request("screen");
+          console.log(wakeLock);
+        } catch (err) {
+          // The wake lock request fails - usually system-related, such as low battery.
+      
+          console.log(`${err.name}, ${err.message}`);
+        }
+      };
+      
+      requestWakeLock();
       if (currentTimerIndex >= timers.length) {
         clearInterval(intervalId);
         alert("¡Todos los intervalos han terminado!");
