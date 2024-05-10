@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lector de Voz</title>
+</head>
+<body>
+  <h1>Lector de Voz</h1>
+  <button onclick="leerPalabra()">Leer</button>
+  <script>
+    function leerPalabra() {
+      const palabra = "She craned out of the window with her long neck.";
+      const idioma = "en-US"; // Especifica el idioma deseado, en este caso, español de España
+      const synth = window.speechSynthesis;
+      const utterance = new SpeechSynthesisUtterance(palabra);
+      utterance.lang = idioma; // Establece el idioma de la instancia
+      //utterance.lang = "en-US";
+      synth.speak(utterance);
+    }
+  </script>
+</body>
+</html>
