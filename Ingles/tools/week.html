@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randon</title>
+</head>
+<body>
+    <h1>randon de claves</h1>
+    <input type="number" id="numeroSemana" placeholder="Ingrese el número de semana">
+    <button onclick="generarClave()">Generar clave</button>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function obtenerNumeroSemana(fecha) {
+        const diaAnio = Math.floor(fecha.getDate() / 7) + 1;
+
+        let valorinput = document.getElementById('numeroSemana').value;
+        let numeroSemana = diaAnio + Math.floor((fecha.getMonth() + 1) / 3);
+        return numeroSemana+valorinput;
+    }
+    function generarClave() {
+        const fechaActual = new Date();
+        const numeroSemana = obtenerNumeroSemana(fechaActual);
+        const clave = generarClaveCompleta(numeroSemana);
+        document.getElementById('resultado').textContent = clave;
+    }
+    function generarClaveCompleta(numeroSemana) {
+        const letraMayuscula = obtenerLetraMayuscula(numeroSemana);
+        const letraMinuscula = obtenerLetraMinuscula(numeroSemana);
+        const caracterEspecial = obtenerCaracterEspecial(numeroSemana);
+        const clave = `n${numeroSemana + 5}${letraMayuscula}${letraMinuscula}${caracterEspecial}B${letraMayuscula}${letraMinuscula}`;
+        return clave;
+    }
+    function obtenerLetraMayuscula(numeroSemana) {
+        const unidades = numeroSemana % 10;
+        const letraMayuscula = String.fromCharCode(65 + unidades+5);
+        console.log(letraMayuscula);
+        return letraMayuscula === '0' ? 'A' : letraMayuscula;
+    }
+    function obtenerLetraMinuscula(numeroSemana) {
+        const decenas = Math.floor(numeroSemana / 10);
+        const letraMinuscula = String.fromCharCode(97 + decenas+3);
+        return letraMinuscula;
+    }
+    function obtenerCaracterEspecial(numeroSemana) {
+        const codigoAscii = 33 + (numeroSemana - 1) % 15;
+        const caracterEspecial = String.fromCharCode(codigoAscii);
+        return caracterEspecial;
+    }
+</script>
