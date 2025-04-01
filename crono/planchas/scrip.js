@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const timers = [
       { id: "actividad010", duration: 60 },{ id: "descanso010", duration: 3 },
       { id: "actividad020", duration: 30 },{ id: "descanso020", duration: 3 },
-      { id: "actividad030", duration: 60 },{ id: "descanso030", duration: 3 },
+      { id: "actividad030", duration: 30 },{ id: "descanso030", duration: 3 },
       { id: "actividad040", duration: 30 },{ id: "descanso040", duration: 3 },
       //{ id: "actividad050", duration: 20 },{ id: "descanso050", duration: 15 },
       //{ id: "actividad060", duration: 20 },{ id: "descanso060", duration: 15 },

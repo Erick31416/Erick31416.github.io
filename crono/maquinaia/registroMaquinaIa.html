@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Marcas - Gimnasio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .machine-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .machine-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .machine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .machine-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .machine-params {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .param-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .param-label {
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+        
+        .param-value {
+            font-weight: bold;
+        }
+        
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .delete-btn {
+            background-color: #e74c3c;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .add-machine-form {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        
+        #filterInput {
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Registro marcas</h1>
+        <button id="saveAllBtn">Guardar todo</button>
+    </div>
+    
+    <h2>Gimnasio</h2>
+    
+    <div class="filter-container">
+        <input type="text" id="filterInput" placeholder="Filtrar máquina...">
+    </div>
+    
+    <div class="add-machine-form">
+        <h3>Añadir nueva máquina</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="newMachineName">Nombre máquina</label>
+                <input type="text" id="newMachineName" placeholder="Ej: Press banca">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="newMachineWeight">Peso (kg)</label>
+                <input type="number" id="newMachineWeight" placeholder="Ej: 30">
+            </div>
+            <div class="form-group">
+                <label for="newMachineReps">Repeticiones</label>
+                <input type="number" id="newMachineReps" placeholder="Ej: 20">
+            </div>
+        </div>
+        <button id="addMachineBtn">Añadir máquina</button>
+    </div>
+    
+    <div class="machine-list" id="machineList">
+        <!-- Las máquinas se cargarán aquí -->
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const machineList = document.getElementById('machineList');
+            const addMachineBtn = document.getElementById('addMachineBtn');
+            const saveAllBtn = document.getElementById('saveAllBtn');
+            const filterInput = document.getElementById('filterInput');
+            
+            // Cargar máquinas del localStorage
+            let machines = JSON.parse(localStorage.getItem('gymMachines')) || [];
+            
+            // Renderizar máquinas
+            function renderMachines(filter = '') {
+                machineList.innerHTML = '';
+                
+                const filteredMachines = machines.filter(machine => 
+                    machine.name.toLowerCase().includes(filter.toLowerCase())
+                );
+                
+                if (filteredMachines.length === 0) {
+                    machineList.innerHTML = '<p>No hay máquinas registradas.</p>';
+                    return;
+                }
+                
+                filteredMachines.forEach((machine, index) => {
+                    const machineCard = document.createElement('div');
+                    machineCard.className = 'machine-card';
+                    machineCard.innerHTML = `
+                        <div class="machine-header">
+                            <div class="machine-name">
+                                <input type="text" value="${machine.name}" data-field="name" data-index="${index}">
+                            </div>
+                            <div class="actions">
+                                <button class="delete-btn" data-index="${index}">Eliminar</button>
+                            </div>
+                        </div>
+                        <div class="machine-params">
+                            <div class="param-group">
+                                <span class="param-label">Peso</span>
+                                <input type="number" value="${machine.weight}" data-field="weight" data-index="${index}">
+                                <span class="param-label">kg</span>
+                            </div>
+                            <div class="param-group">
+                                <span class="param-label">Repeticiones</span>
+                                <input type="number" value="${machine.reps}" data-field="reps" data-index="${index}">
+                            </div>
+                        </div>
+                    `;
+                    machineList.appendChild(machineCard);
+                });
+            }
+            
+            // Guardar máquinas en localStorage
+            function saveMachines() {
+                localStorage.setItem('gymMachines', JSON.stringify(machines));
+                alert('Datos guardados correctamente!');
+            }
+            
+            // Añadir nueva máquina
+            addMachineBtn.addEventListener('click', function() {
+                const name = document.getElementById('newMachineName').value.trim();
+                const weight = document.getElementById('newMachineWeight').value;
+                const reps = document.getElementById('newMachineReps').value;
+                
+                if (!name) {
+                    alert('Por favor ingresa un nombre para la máquina');
+                    return;
+                }
+                
+                machines.push({
+                    name: name,
+                    weight: weight || '0',
+                    reps: reps || '0'
+                });
+                
+                saveMachines();
+                renderMachines();
+                
+                // Limpiar formulario
+                document.getElementById('newMachineName').value = '';
+                document.getElementById('newMachineWeight').value = '';
+                document.getElementById('newMachineReps').value = '';
+            });
+            
+            // Guardar todas las máquinas
+            saveAllBtn.addEventListener('click', saveMachines);
+            
+            // Filtrar máquinas
+            filterInput.addEventListener('input', function() {
+                renderMachines(this.value);
+            });
+            
+            // Delegación de eventos para inputs editables y botones de eliminar
+            machineList.addEventListener('input', function(e) {
+                if (e.target.tagName === 'INPUT') {
+                    const index = e.target.dataset.index;
+                    const field = e.target.dataset.field;
+                    const value = e.target.value;
+                    
+                    machines[index][field] = value;
+                }
+            });
+            
+            machineList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('delete-btn')) {
+                    const index = e.target.dataset.index;
+                    if (confirm('¿Estás seguro de que quieres eliminar esta máquina?')) {
+                        machines.splice(index, 1);
+                        saveMachines();
+                        renderMachines(filterInput.value);
+                    }
+                }
+            });
+            
+            // Renderizar máquinas al cargar la página
+            renderMachines();
+        });
+    </script>
+</body>
+</html>
