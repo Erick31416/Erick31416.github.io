@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ropa en familia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .usuarios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0;
+      list-style: none;
+    }
+    .usuario {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .usuario:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .usuario a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ropa para compartir</h1>
+  <ul class="usuarios">
+    <!-- BLOQUE DE USUARIO: COPIA Y PEGA PARA AÑADIR MÁS -->
+    <li class="usuario">
+      <a href="Helena/Helena.html">Helena</a>
+    </li>
+    <!-- FIN BLOQUE DE USUARIO -->
+     <!-- BLOQUE DE USUARIO: COPIA Y PEGA PARA AÑADIR MÁS -->
+    <li class="usuario">
+      <a href="ricardo/ricardo.html">ricardo</a>
+    </li>
+    <!-- FIN BLOQUE DE USUARIO -->
+     <!-- BLOQUE DE USUARIO: COPIA Y PEGA PARA AÑADIR MÁS -->
+    <li class="usuario">
+      <a href="cristina/cristina.html">cristina</a>
+    </li>
+    <!-- FIN BLOQUE DE USUARIO -->
+     
+  </ul>
+</body>
+</html>
