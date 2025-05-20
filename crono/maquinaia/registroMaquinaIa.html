@@ -3,178 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Marcas - Gimnasio</title>
+    <title>Registro de Marcas</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 10px;
+            background-color: #f8f8f8;
             color: #333;
-        }
-        
-        h1, h2, h3 {
-            color: #2c3e50;
+            font-size: 14px;
+            line-height: 1.4;
         }
         
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+        
+        h1, h2 {
+            margin: 5px 0;
+            color: #222;
         }
         
         button {
-            background-color: #3498db;
+            background-color: #4a6da7;
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 5px 10px;
+            border-radius: 3px;
             cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            font-family: inherit;
+            font-size: 12px;
         }
         
         button:hover {
-            background-color: #2980b9;
-        }
-        
-        .machine-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .machine-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .machine-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-        
-        .machine-name {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        
-        .machine-params {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .param-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .param-label {
-            font-size: 0.8em;
-            color: #7f8c8d;
-        }
-        
-        .param-value {
-            font-weight: bold;
-        }
-        
-        input {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .actions {
-            display: flex;
-            gap: 10px;
+            background-color: #3a5a8f;
         }
         
         .delete-btn {
-            background-color: #e74c3c;
+            background-color: #a74a4a;
+            margin-left: 5px;
         }
         
         .delete-btn:hover {
-            background-color: #c0392b;
+            background-color: #8f3a3a;
+        }
+        
+        .machine-list {
+            margin-left: 15px;
+            border-left: 1px solid #ddd;
+            padding-left: 10px;
+        }
+        
+        .machine-item {
+            margin: 5px 0;
+            position: relative;
+        }
+        
+        .machine-name {
+            font-weight: bold;
+            display: inline-block;
+            min-width: 120px;
+        }
+        
+        .machine-params {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .param-group {
+            display: inline-block;
+            margin-right: 1px;
+        }
+        
+        input {
+            padding: 3px 5px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 50px;
+            font-family: inherit;
+            font-size: 12px;
         }
         
         .add-machine-form {
-            background-color: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        
-        .form-group {
-            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            padding: 8px;
+            border-radius: 3px;
+            margin: 10px 0;
         }
         
         .form-row {
-            display: flex;
-            gap: 10px;
+            margin-bottom: 5px;
         }
         
-        .form-row .form-group {
-            flex: 1;
+        .form-group {
+            display: inline-block;
+            margin-right: 10px;
         }
         
-        .filter-container {
-            margin-bottom: 20px;
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            color: #666;
         }
         
         #filterInput {
-            padding: 10px;
             width: 100%;
-            border-radius: 4px;
-            border: 1px solid #ddd;
+            padding: 5px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        
+        .json-structure {
+            color: #555;
+            font-style: italic;
+            margin-left: 15px;
+        }
+        
+        .json-bracket {
+            color: #333;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Registro marcas</h1>
-        <button id="saveAllBtn">Guardar todo</button>
+        <button id="saveAllBtn">Guardar</button>
     </div>
     
-    <h2>Gimnasio</h2>
+
     
-    <div class="filter-container">
-        <input type="text" id="filterInput" placeholder="Filtrar máquina...">
-    </div>
+    <input type="text" id="filterInput" placeholder="Filtrar máquinas...">
     
     <div class="add-machine-form">
-        <h3>Añadir nueva máquina</h3>
         <div class="form-row">
             <div class="form-group">
-                <label for="newMachineName">Nombre máquina</label>
-                <input type="text" id="newMachineName" placeholder="Ej: Press banca">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group">
-                <label for="newMachineWeight">Peso (kg)</label>
-                <input type="number" id="newMachineWeight" placeholder="Ej: 30">
+                <label>Nombre máquina</label>
+                <input type="text" id="newMachineName" placeholder="Press banca">
             </div>
             <div class="form-group">
-                <label for="newMachineReps">Repeticiones</label>
-                <input type="number" id="newMachineReps" placeholder="Ej: 20">
+                <label>Peso (kg)</label>
+                <input type="number" id="newMachineWeight" placeholder="30">
             </div>
+            <div class="form-group">
+                <label>Repeticiones</label>
+                <input type="number" id="newMachineReps" placeholder="20">
+            </div>
+            <div class="form-group">
+                <label>km</label>
+                <input type="number" id="newMachinekm" placeholder="20">
+            </div>
+            <div class="form-group">
+                <label>min</label>
+                <input type="number" id="newMachineMin" placeholder="20">
+            </div>
+            <button id="addMachineBtn">+ Añadir</button>
         </div>
-        <button id="addMachineBtn">Añadir máquina</button>
     </div>
     
-    <div class="machine-list" id="machineList">
-        <!-- Las máquinas se cargarán aquí -->
+    <div class="machine-list" id="machineLdist">
+        <div class="json-structure">
+            <span class="json-bracket">{</span>
+            <div id="machineList">
+                <!-- Máquinas se insertarán aquí -->
+            </div>
+            <span class="json-bracket">}</span>
+        </div>
     </div>
     
     <script>
@@ -197,42 +196,51 @@
                 );
                 
                 if (filteredMachines.length === 0) {
-                    machineList.innerHTML = '<p>No hay máquinas registradas.</p>';
+                    machineList.innerHTML = '<div style="margin-left: 20px; color: #999;">"No hay máquinas"</div>';
                     return;
                 }
-                
+
                 filteredMachines.forEach((machine, index) => {
-                    const machineCard = document.createElement('div');
-                    machineCard.className = 'machine-card';
-                    machineCard.innerHTML = `
-                        <div class="machine-header">
-                            <div class="machine-name">
-                                <input type="text" value="${machine.name}" data-field="name" data-index="${index}">
-                            </div>
-                            <div class="actions">
-                                <button class="delete-btn" data-index="${index}">Eliminar</button>
-                            </div>
-                        </div>
-                        <div class="machine-params">
-                            <div class="param-group">
-                                <span class="param-label">Peso</span>
-                                <input type="number" value="${machine.weight}" data-field="weight" data-index="${index}">
-                                <span class="param-label">kg</span>
-                            </div>
-                            <div class="param-group">
-                                <span class="param-label">Repeticiones</span>
-                                <input type="number" value="${machine.reps}" data-field="reps" data-index="${index}">
-                            </div>
-                        </div>
-                    `;
-                    machineList.appendChild(machineCard);
-                });
+                    const machineItem = document.createElement('div');
+                    machineItem.className = 'machine-item';
+                    machineItem.style.marginLeft = '15px';
+                    const paramGroups = [
+                        { prop: 'weight', unit: 'kg' },
+                        { prop: 'reps', unit: 'reps' },
+                        { prop: 'km', unit: 'km' },
+                        { prop: 'min', unit: 'min' }
+                    ];
+
+                    machineItem.innerHTML = `
+    <span class="machine-name">
+        <input type="text" value="${machine.name}" data-field="name" data-index="${index}" 
+               style="width: 120px; margin-right: 0px;">
+    </span>
+    <span class="machine-params">
+        ${paramGroups.map(({ prop, unit }) =>
+                        machine[prop] !== undefined && machine[prop] !=0 ? `
+            <span class="param-group">
+                <input type="number" value="${machine[prop]}" data-field="${prop}" data-index="${index}">
+                <span>${unit}</span>
+            </span>
+            ` : ''
+                    ).join('')}
+        <button class="delete-btn" data-index="${index}">×</button>
+    </span>
+`;
+                    machineList.appendChild(machineItem);
+                              });
             }
             
             // Guardar máquinas en localStorage
             function saveMachines() {
                 localStorage.setItem('gymMachines', JSON.stringify(machines));
-                alert('Datos guardados correctamente!');
+                // Feedback visual en lugar de alert
+                const originalText = saveAllBtn.textContent;
+                saveAllBtn.textContent = '✓ Guardado';
+                setTimeout(() => {
+                    saveAllBtn.textContent = originalText;
+                }, 1000);
             }
             
             // Añadir nueva máquina
@@ -240,25 +248,34 @@
                 const name = document.getElementById('newMachineName').value.trim();
                 const weight = document.getElementById('newMachineWeight').value;
                 const reps = document.getElementById('newMachineReps').value;
+                const km = document.getElementById('newMachinekm').value;
+                const min = document.getElementById('newMachineMin').value;
                 
-                if (!name) {
-                    alert('Por favor ingresa un nombre para la máquina');
-                    return;
-                }
+                if (!name) return;
                 
                 machines.push({
                     name: name,
                     weight: weight || '0',
-                    reps: reps || '0'
+                    reps: reps || '0',
+                    km: km || '0',
+                    min: min || '0'
                 });
                 
                 saveMachines();
-                renderMachines();
+                renderMachines(filterInput.value);
                 
                 // Limpiar formulario
                 document.getElementById('newMachineName').value = '';
                 document.getElementById('newMachineWeight').value = '';
                 document.getElementById('newMachineReps').value = '';
+                document.getElementById('newMachineName').focus();
+            });
+            
+            // Permitir añadir con Enter
+            document.getElementById('newMachineName').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    addMachineBtn.click();
+                }
             });
             
             // Guardar todas las máquinas
@@ -283,7 +300,7 @@
             machineList.addEventListener('click', function(e) {
                 if (e.target.classList.contains('delete-btn')) {
                     const index = e.target.dataset.index;
-                    if (confirm('¿Estás seguro de que quieres eliminar esta máquina?')) {
+                    if (confirm('¿Eliminar esta máquina?')) {
                         machines.splice(index, 1);
                         saveMachines();
                         renderMachines(filterInput.value);
