@@ -53,9 +53,9 @@
         }
         
         .machine-list {
-            margin-left: 15px;
+            margin-left: 1px;
             border-left: 1px solid #ddd;
-            padding-left: 10px;
+            padding-left: 1px;
         }
         
         .machine-item {
@@ -121,13 +121,15 @@
         .json-structure {
             color: #555;
             font-style: italic;
-            margin-left: 15px;
+            margin-left: 1px;
         }
         
         .json-bracket {
             color: #333;
             font-weight: bold;
         }
+
+
     </style>
 </head>
 <body>
@@ -212,22 +214,14 @@
                     ];
 
                     machineItem.innerHTML = `
-    <span class="machine-name">
-        <input type="text" value="${machine.name}" data-field="name" data-index="${index}" 
-               style="width: 120px; margin-right: 0px;">
-    </span>
-    <span class="machine-params">
-        ${paramGroups.map(({ prop, unit }) =>
-                        machine[prop] !== undefined && machine[prop] !=0 ? `
-            <span class="param-group">
-                <input type="number" value="${machine[prop]}" data-field="${prop}" data-index="${index}">
-                <span>${unit}</span>
-            </span>
-            ` : ''
-                    ).join('')}
-        <button class="delete-btn" data-index="${index}">×</button>
-    </span>
-`;
+    
+                        <span contenteditable="true" data-field="name" data-index="${index}">${machine.name}</span>:
+                        ${machine.weight !== '0' ? `<span contenteditable="true" data-field="weight" data-index="${index}">${machine.weight}</span><span>kg</span>` : ''}
+                        ${machine.reps !== '0' ? `<span contenteditable="true" data-field="reps" data-index="${index}">${machine.reps}</span><span>reps</span>` : ''}
+                        ${machine.km !== '0' ? `<span contenteditable="true" data-field="km" data-index="${index}">${machine.km}</span><span>km</span>` : ''}
+                        ${machine.min !== '0' ? `<span contenteditable="true" data-field="min" data-index="${index}">${machine.min}</span><span>min</span>` : ''}
+                        <button class="delete-btn" data-index="${index}">×</button>
+                    `;
                     machineList.appendChild(machineItem);
                               });
             }
@@ -288,10 +282,10 @@
             
             // Delegación de eventos para inputs editables y botones de eliminar
             machineList.addEventListener('input', function(e) {
-                if (e.target.tagName === 'INPUT') {
+               if (e.target.hasAttribute('contenteditable')) {
                     const index = e.target.dataset.index;
                     const field = e.target.dataset.field;
-                    const value = e.target.value;
+                     const value = e.target.textContent.trim();
                     
                     machines[index][field] = value;
                 }
